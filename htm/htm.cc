@@ -20,10 +20,6 @@ int main(int argc, char *argv[])
 
   size_t loop = atoi(argv[2]);
 
-  _xbegin();
-  _xend();
-  return 0;
-
   double normal_time = bench([loop]() {
       volatile uint64_t x = 0;
       for (size_t i = 0; i < loop; i++) {
