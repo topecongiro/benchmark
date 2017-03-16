@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     return 0;
   }
 
-  size_t loop = atoi(argv[2]);
+  size_t loop = atoi(argv[1]);
 
   _xbegin();
   _xend();
