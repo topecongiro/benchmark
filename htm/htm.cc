@@ -1,4 +1,5 @@
 #include <immintrin.h>
+#include <cassert>
 #include <cstdio>
 #include <chrono>
 #include <mutex>
@@ -25,6 +26,7 @@ int main(int argc, char *argv[])
       for (size_t i = 0; i < loop; i++) {
         ++x;
       }
+      assert(x == loop);
     });
   double htm_time = bench([loop]() {
       volatile uint64_t x = 0;
@@ -39,6 +41,7 @@ int main(int argc, char *argv[])
           mtx.unlock();
         }
       }
+      assert(x == loop);
     });
 
   printf("Elapsed time for normal operation: %f\n", normal_time);
